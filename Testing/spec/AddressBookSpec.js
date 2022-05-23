@@ -1,20 +1,22 @@
 describe("Address Book", function(){
+	let addressBook;
+	let thisContact;
 
-    it("should be able to add a contact", function(){
+	beforeEach(function(){
+		addressBook = new AddressBook();
+		thisContact = new Contact();
+	});
 
-        let addressBook = new AddressBook();
-        let thisContact = new Contact("Samuel", "Adebayo", "07012345678", "1");
+	it("should be able to add a contact", function(){
+		addressBook.addContact(thisContact);
 
-        addressBook.addContact(thisContact);
-        expect(addressBook.getContact(0)).toBe(thisContact);
-    });
+		expect(addressBook.getContact(0)).toBe(thisContact);
+	});
 
-    it("should be able to delete a contact", function() {
-        let addressBook = new AddressBook();
-        let thisContact = new Contact("Samuel", "Adebayo", "07012345678", "1");
+	it("should be able to delete a contact", function() {
+		addressBook.addContact(thisContact);
+		addressBook.deleteContact(0);
 
-        addressBook.addContact(thisContact);
-        addressBook.deleteContact(0);
-        expect(addressBook.getContact(0)).not.toBeDefined();
-    })
+		expect(addressBook.getContact(0)).not.toBeDefined();
+	})
 });
