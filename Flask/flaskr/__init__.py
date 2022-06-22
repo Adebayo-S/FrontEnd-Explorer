@@ -1,4 +1,3 @@
-from inspect import ismethoddescriptor
 from flask import Flask, jsonify
 import os
 
@@ -10,8 +9,8 @@ def create_app(test_config=None):
 
     # the second argument passed simply says if there's going to be
     # any config in the same project dir, look relative to the instance
-    app = Flask(__name__ # , instance_relative_config=True #
-        )
+    app = Flask(__name__  # , instance_relative_config=True #
+                )
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
@@ -23,7 +22,6 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
-
 
     # Note: Don't have multiple app route decorators for the
     # same route. Unique routes and methods.
