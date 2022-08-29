@@ -12,3 +12,5 @@ CREATE DATABASE plants
 \i plantsdb_setup.sql
 \i plants.psql
 ```
+
+instead of typing << flask run >> you should type << python -m flask run >>
